@@ -2,24 +2,29 @@ package org.example;
 
 import java.util.Scanner;
 
-public class OddEven {
-    public static void main(String[] args) {
-        int number;
-        int countOdd = 0;
-        int countEven = 0;
-        Scanner in = new Scanner(System.in); // 数字用空格或换行隔开，每次读入一个，直到输入‘-1’
-        do{
-            number = in.nextInt();
-            if(number != -1)
+public class UTC {
+    public static void main(String[] args){
+        int BT,UT,n,m;
+        Scanner in = new Scanner(System.in);
+        BT = in.nextInt();
+        if(BT<0 | BT>2359)
+        {
+            System.out.println("输入错误，请重新输入");
+        }
+        else
+        {
+            n = BT/100;
+            m = BT%100;
+            if(n<8)
             {
-                if (number % 2 == 0) {
-                    countEven += 1;
-                } else {
-                    countOdd += 1;
-                }
+                n = n + 24;
+                UT = n*100+m;
+                System.out.println(UT - 800);
             }
-        }while(number != -1); // 理解do while和while循环的区别
-        System.out.print(countOdd+" ");
-        System.out.println(countEven);
+            else
+            {
+                System.out.println(BT - 800);
+            }
+        }
     }
 }
