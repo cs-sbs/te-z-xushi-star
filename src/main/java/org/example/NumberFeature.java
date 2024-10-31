@@ -9,32 +9,24 @@ public class NumberFeature {
         Scanner in = new Scanner(System.in);
         inputNumber = in.nextInt();
         // 你的代码逻辑
-import java.util.Scanner;  
-  
-public class ParityFeatureValueOptimized {  
-    public static void main(String[] args) {  
-        Scanner scanner = new Scanner(System.in);  
-        int number = scanner.nextInt();  
-        scanner.close();  
-  
-        int binaryValue = 0; // 用于存储二进制表示的整数  
-        int position = 1; // 数位从1开始  
-        int tempNumber = number;  
-  
-        while (tempNumber > 0) {  
-            int digit = tempNumber % 10; // 获取当前个位数字  
-            if ((digit % 2 == 0 && position % 2 == 0) || (digit % 2 == 1 && position % 2 == 1)) {  
-                // 如果数字和数位的奇偶性相同，则将当前二进制位设置为1  
-                binaryValue |= (1 << (position - 1)); // 使用位运算将对应位置为1  
-            }  
-            tempNumber /= 10; // 去掉当前个位数字，继续处理下一位  
-            position++; // 数位递增  
-        }  
-  
-        // 输出计算结果  
-        System.out.println(binaryValue);  
-    }  
-}
+
+        digital_eigenvalue(inputNumber, result);
+
+
+    }
+
+    public static void digital_eigenvalue(int inputNumber, int result) {
+        int number;
+        int digit_position = 1;
+        int binary_bit_value = 1;
+        while (inputNumber > 0) {
+            number = inputNumber % 10;
+            inputNumber = inputNumber / 10;
+            if (number % 2 == digit_position % 2)
+                result += binary_bit_value;
+            binary_bit_value *= 2;
+            digit_position++;
+        }
         System.out.println(result);
     }
 }
